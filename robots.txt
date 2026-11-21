@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# Template UPW-TORQUE-M3E6 · licença __UPW_LICENCA__ · Upward Academy

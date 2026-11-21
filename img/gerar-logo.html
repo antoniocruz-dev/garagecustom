@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head><title>Gerar Logo PNG</title></head>
+<body>
+<canvas id="c" width="400" height="200"></canvas>
+<script>
+const c = document.getElementById('c');
+const ctx = c.getContext('2d');
+
+// Background transparente
+ctx.clearRect(0, 0, 400, 200);
+
+// --- Gradients ---
+const shieldGrad = ctx.createLinearGradient(200, 10, 200, 190);
+shieldGrad.addColorStop(0, '#3a3d42');
+shieldGrad.addColorStop(1, '#1a1c1f');
+
+const silverGrad = ctx.createLinearGradient(0, 0, 0, 60);
+silverGrad.addColorStop(0, '#c8c8c8');
+silverGrad.addColorStop(0.4, '#ffffff');
+silverGrad.addColorStop(1, '#888888');
+
+const greenGrad = ctx.createLinearGradient(0, 0, 0, 30);
+greenGrad.addColorStop(0, '#6fff2a');
+greenGrad.addColorStop(1, '#2ecc00');
+
+// --- Shield ---
+ctx.save();
+ctx.shadowColor = 'rgba(0,0,0,0.7)';
+ctx.shadowBlur = 10;
+ctx.shadowOffsetY = 4;
+
+ctx.beginPath();
+ctx.moveTo(200, 12);
+ctx.lineTo(260, 36);
+ctx.lineTo(274, 112);
+ctx.quadraticCurveTo(272, 165, 200, 188);
+ctx.quadraticCurveTo(128, 165, 126, 112);
+ctx.lineTo(140, 36);
+ctx.closePath();
+ctx.fillStyle = shieldGrad;
+ctx.fill();
+ctx.strokeStyle = '#5a5d62';
+ctx.lineWidth = 2;
+ctx.stroke();
+ctx.restore();
+
+// Shield inner glow border
+ctx.save();
+ctx.beginPath();
+ctx.moveTo(200, 22);
+ctx.lineTo(252, 44);
+ctx.lineTo(264, 114);
+ctx.quadraticCurveTo(262, 160, 200, 180);
+ctx.quadraticCurveTo(138, 160, 136, 114);
+ctx.lineTo(148, 44);
+ctx.closePath();
+ctx.strokeStyle = 'rgba(90,93,98,0.6)';
+ctx.lineWidth = 1;
+ctx.stroke();
+ctx.restore();
+
+// Green stripes (clipped to shield)
+ctx.save();
+ctx.beginPath();
+ctx.moveTo(200, 12);
+ctx.lineTo(260, 36);
+ctx.lineTo(274, 112);
+ctx.quadraticCurveTo(272, 165, 200, 188);
+ctx.quadraticCurveTo(128, 165, 126, 112);
+ctx.lineTo(140, 36);
+ctx.closePath();
+ctx.clip();
+
+ctx.fillStyle = greenGrad;
+ctx.fillRect(186, 148, 11, 46);
+ctx.fillRect(203, 148, 11, 46);
+ctx.restore();
+
+// --- Wrench left ---
+ctx.save();
+ctx.translate(136, 60);
+ctx.rotate(-0.52);
+ctx.shadowColor = 'rgba(0,0,0,0.6)';
+ctx.shadowBlur = 6;
+ctx.fillStyle = silverGrad;
+ctx.beginPath(); ctx.arc(0, 0, 7, 0, Math.PI*2); ctx.fill();
+ctx.fillRect(-3.5, 0, 7, 28);
+ctx.beginPath(); ctx.arc(0, 28, 7, 0, Math.PI*2); ctx.fill();
+ctx.restore();
+
+// --- Wrench right ---
+ctx.save();
+ctx.translate(264, 60);
+ctx.rotate(0.52);
+ctx.shadowColor = 'rgba(0,0,0,0.6)';
+ctx.shadowBlur = 6;
+const sg2 = ctx.createLinearGradient(0, 0, 0, 60);
+sg2.addColorStop(0, '#c8c8c8');
+sg2.addColorStop(0.4, '#ffffff');
+sg2.addColorStop(1, '#888888');
+ctx.fillStyle = sg2;
+ctx.beginPath(); ctx.arc(0, 0, 7, 0, Math.PI*2); ctx.fill();
+ctx.fillRect(-3.5, 0, 7, 28);
+ctx.beginPath(); ctx.arc(0, 28, 7, 0, Math.PI*2); ctx.fill();
+ctx.restore();
+
+// --- Car silhouette ---
+ctx.save();
+ctx.translate(200, 128);
+ctx.shadowColor = 'rgba(0,0,0,0.7)';
+ctx.shadowBlur = 8;
+
+// Body
+ctx.beginPath();
+ctx.moveTo(-55, 5);
+ctx.quadraticCurveTo(-50, -10, -30, -16);
+ctx.lineTo(-10, -22);
+ctx.quadraticCurveTo(0, -28, 10, -22);
+ctx.lineTo(30, -16);
+ctx.quadraticCurveTo(50, -10, 55, 5);
+ctx.lineTo(55, 14);
+ctx.lineTo(-55, 14);
+ctx.closePath();
+ctx.fillStyle = '#252830';
+ctx.fill();
+ctx.strokeStyle = '#5a5d62';
+ctx.lineWidth = 1;
+ctx.stroke();
+
+// Windshield (green tint)
+ctx.beginPath();
+ctx.moveTo(-24, -16);
+ctx.quadraticCurveTo(-18, -26, -8, -27);
+ctx.lineTo(8, -27);
+ctx.quadraticCurveTo(18, -26, 24, -16);
+ctx.closePath();
+ctx.fillStyle = 'rgba(60,180,60,0.4)';
+ctx.fill();
+
+// Wheels
+[-33, 33].forEach(x => {
+  ctx.beginPath(); ctx.arc(x, 14, 10, 0, Math.PI*2);
+  ctx.fillStyle = '#1a1c1f'; ctx.fill();
+  ctx.strokeStyle = '#5a5d62'; ctx.lineWidth = 2; ctx.stroke();
+  ctx.beginPath(); ctx.arc(x, 14, 4, 0, Math.PI*2);
+  ctx.fillStyle = '#3a3d42'; ctx.fill();
+});
+ctx.restore();
+
+// --- GARAGE text ---
+ctx.save();
+ctx.font = '900 40px "Arial Black", Impact, sans-serif';
+ctx.textAlign = 'center';
+ctx.textBaseline = 'middle';
+const sg3 = ctx.createLinearGradient(200, 30, 200, 70);
+sg3.addColorStop(0, '#d0d0d0');
+sg3.addColorStop(0.4, '#ffffff');
+sg3.addColorStop(1, '#8a8a8a');
+ctx.shadowColor = 'rgba(0,0,0,0.8)';
+ctx.shadowBlur = 8;
+ctx.fillStyle = sg3;
+ctx.letterSpacing = '3px';
+ctx.fillText('GARAGE', 200, 52);
+ctx.restore();
+
+// --- CUSTOM text (green) ---
+ctx.save();
+ctx.font = '900 22px "Arial Black", Impact, sans-serif';
+ctx.textAlign = 'center';
+ctx.textBaseline = 'middle';
+const gg2 = ctx.createLinearGradient(200, 68, 200, 88);
+gg2.addColorStop(0, '#6fff2a');
+gg2.addColorStop(1, '#2ecc00');
+ctx.shadowColor = 'rgba(70,255,30,0.4)';
+ctx.shadowBlur = 10;
+ctx.fillStyle = gg2;
+ctx.fillText('CUSTOM', 200, 78);
+ctx.restore();
+
+// Export
+const a = document.createElement('a');
+a.download = 'logo-garage-custom.png';
+a.href = c.toDataURL('image/png');
+a.click();
+document.body.append(Object.assign(document.createElement('p'), {textContent: 'PNG gerado! Salvo como logo-garage-custom.png'}));
+</script>
+</body>
+</html>

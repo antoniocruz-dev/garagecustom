@@ -1,0 +1,18 @@
+TORQUE · OFICINA MECÂNICA — como usar esta página
+Template UPW-TORQUE-M3E6 · licença __UPW_LICENCA__ · © 2026 Upward Academy
+
+1. ABRIR: dê dois cliques em index.html. Funciona sem instalar nada.
+2. WHATSAPP: abra js/main.js e troque o número em NEGOCIO.whatsapp (só números, com 55 e DDD).
+   As mensagens de cada botão estão no próprio index.html, no atributo data-whatsapp.
+   O formulário de orçamento (carro, ano, serviço) monta a mensagem sozinho e abre o WhatsApp.
+   Para mudar a lista de serviços do formulário, edite as <option> do campo "Serviço".
+3. TEXTOS E PREÇOS: estão todos no index.html. Os valores "a partir de" são exemplos: ajuste aos seus.
+4. GARANTIA: o prazo de 90 dias é um exemplo. Coloque o prazo que a sua oficina realmente oferece.
+5. ENDEREÇO E HORÁRIO: seção "Endereço e horário", no fim do index.html.
+6. CORES E FONTES: no começo de css/estilo.css (bloco :root). O amarelo de destaque é --amarelo.
+7. FOTOS: ficam em img/. Para trocar, salve a sua com o mesmo nome (ex.: img/bancada.webp).
+   Use fotos reais da sua oficina sempre que puder.
+8. DEPOIMENTOS E NOTA: são exemplos. Troque pelos de clientes reais antes de publicar.
+9. PUBLICAR: envie a pasta inteira para a sua hospedagem (Hostinger, Netlify, Vercel...).
+
+Criada por Upward Academy · https://app.upwardacademy.com.br/app/templates

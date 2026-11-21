@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a3d42"/>
+      <stop offset="100%" stop-color="#1a1c1f"/>
+    </linearGradient>
+    <linearGradient id="silverGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d0d0d0"/>
+      <stop offset="45%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#8a8a8a"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6fff2a"/>
+      <stop offset="100%" stop-color="#2ecc00"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Shield shape -->
+  <path d="M200 10 L260 35 L275 110 Q275 165 200 190 Q125 165 125 110 L140 35 Z"
+        fill="url(#shieldGrad)" stroke="#4a4d52" stroke-width="2" filter="url(#shadow)"/>
+
+  <!-- Shield inner border -->
+  <path d="M200 20 L253 42 L266 112 Q266 160 200 182 Q134 160 134 112 L147 42 Z"
+        fill="none" stroke="#5a5d62" stroke-width="1.5"/>
+
+  <!-- Green stripes at bottom of shield -->
+  <clipPath id="shieldClip">
+    <path d="M200 10 L260 35 L275 110 Q275 165 200 190 Q125 165 125 110 L140 35 Z"/>
+  </clipPath>
+  <rect x="186" y="150" width="10" height="45" fill="url(#greenGrad)" clip-path="url(#shieldClip)"/>
+  <rect x="204" y="150" width="10" height="45" fill="url(#greenGrad)" clip-path="url(#shieldClip)"/>
+
+  <!-- Wrench left -->
+  <g transform="translate(133,55) rotate(-30)" fill="url(#silverGrad)" filter="url(#shadow)">
+    <ellipse cx="0" cy="0" rx="8" ry="8"/>
+    <rect x="-4" y="0" width="8" height="30" rx="2"/>
+    <ellipse cx="0" cy="30" rx="8" ry="8"/>
+  </g>
+
+  <!-- Wrench right -->
+  <g transform="translate(267,55) rotate(30)" fill="url(#silverGrad)" filter="url(#shadow)">
+    <ellipse cx="0" cy="0" rx="8" ry="8"/>
+    <rect x="-4" y="0" width="8" height="30" rx="2"/>
+    <ellipse cx="0" cy="30" rx="8" ry="8"/>
+  </g>
+
+  <!-- Car silhouette -->
+  <g transform="translate(200,110)" filter="url(#shadow)">
+    <!-- Car body -->
+    <path d="M-55 5 Q-50 -12 -30 -18 L-10 -24 Q0 -30 10 -24 L30 -18 Q50 -12 55 5 L55 15 L-55 15 Z"
+          fill="#252830" stroke="#4a4d52" stroke-width="1"/>
+    <!-- Windows -->
+    <path d="M-25 -18 Q-20 -26 -10 -28 L10 -28 Q20 -26 25 -18 Z" fill="#1a7a3a" opacity="0.6"/>
+    <!-- Wheels -->
+    <circle cx="-33" cy="15" r="10" fill="#1a1c1f" stroke="#4a4d52" stroke-width="2"/>
+    <circle cx="-33" cy="15" r="5" fill="#3a3d42"/>
+    <circle cx="33" cy="15" r="10" fill="#1a1c1f" stroke="#4a4d52" stroke-width="2"/>
+    <circle cx="33" cy="15" r="5" fill="#3a3d42"/>
+  </g>
+
+  <!-- Gear / cog -->
+  <g transform="translate(200,78)" opacity="0.25">
+    <circle cx="0" cy="0" r="20" fill="none" stroke="#8a8a8a" stroke-width="2"/>
+    <circle cx="0" cy="0" r="6" fill="none" stroke="#8a8a8a" stroke-width="2"/>
+    <line x1="0" y1="-22" x2="0" y2="22" stroke="#8a8a8a" stroke-width="2"/>
+    <line x1="-22" y1="0" x2="22" y2="0" stroke="#8a8a8a" stroke-width="2"/>
+    <line x1="-15.5" y1="-15.5" x2="15.5" y2="15.5" stroke="#8a8a8a" stroke-width="2"/>
+    <line x1="15.5" y1="-15.5" x2="-15.5" y2="15.5" stroke="#8a8a8a" stroke-width="2"/>
+  </g>
+
+  <!-- GARAGE text -->
+  <text x="200" y="58" text-anchor="middle" font-family="Arial Black, Impact, sans-serif"
+        font-size="38" font-weight="900" letter-spacing="2"
+        fill="url(#silverGrad)" filter="url(#glow)" text-transform="uppercase">GARAGE</text>
+
+  <!-- CUSTOM text (green) -->
+  <text x="200" y="85" text-anchor="middle" font-family="Arial Black, Impact, sans-serif"
+        font-size="22" font-weight="900" letter-spacing="6"
+        fill="url(#greenGrad)" filter="url(#glow)">CUSTOM</text>
+
+</svg>

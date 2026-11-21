@@ -1,0 +1,8 @@
+Fotos gratuitas do Unsplash (https://unsplash.com/license): uso livre, inclusive comercial.
+Troque pelas fotos reais do negócio antes de publicar.
+Template UPW-TORQUE-M3E6 · licença __UPW_LICENCA__ · © 2026 Upward Academy
+
+img/mecanico.webp  ←  https://unsplash.com/photos/1615906655593-ad0386982a0f (1600×2400)
+img/oficina.webp  ←  https://unsplash.com/photos/1727893119356-1702fe921cf9 (1600×807)
+img/diagnostico.webp  ←  https://unsplash.com/photos/1632733711679-529326f6db12 (1600×1066)
+img/bancada.webp  ←  https://unsplash.com/photos/1676018366904-c083ed678e60 (1600×1067)
